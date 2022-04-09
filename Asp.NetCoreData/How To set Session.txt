@@ -1,0 +1,14 @@
+----> First install session in dependency folder
+
+---->In controller Index
+		-- HttpContext.Session.SetString("Key","Value"); 	// for set session
+
+---> Startup.cs Folder 
+		--- Line 46  -- app.Session();
+		---Line 24--- Serivces.AddSingleton<IhttpContextAccessor,HttpContextAccessor>();
+				serivces.AddSession();
+---> Index.cshtml (Which view wat to print session)
+		--import--> @using Microsoft.AspNetCore.Http
+				@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+--->    for show--- <h1>@HttpContextAccessor.HttpContext.Session.GetString("Name")</h1>
